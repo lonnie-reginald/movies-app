@@ -1,13 +1,14 @@
 let movieObject = {
-    title: 'shrek 3',
+    title: 'he got game',
     year: 1995,
-    id:`97ajm8fuZYT7HYhV89d3`,
+    id:`PKL5FmV0JL2tlEWnSQI8`,
     director: 'Frank Darabont',
     rating: 9.3,
     runtime: 142,
     genre: 'Drama',
     actors: 'Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler',
 }
+
 // In this project, we will be using a Firebase database to store our movie data.
 // Configuring Firebase is more involved than what is covered in this lesson,
 // so we have provided a class that will handle the configuration for you.
@@ -88,7 +89,6 @@ const deleteMovie = async (movie) => {
         console.error(e);
     }
 }
-// deleteMovie(movieObject)
-getMovies().then(console.log);
+deleteMovie(movieObject)
 // Here is where you will create your own functions to further interact with the database.
 // HAPPY CODING!!!
