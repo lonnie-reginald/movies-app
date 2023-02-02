@@ -1,3 +1,13 @@
+let movieObject = {
+    title: 'shrek 3',
+    year: 1995,
+    id:`97ajm8fuZYT7HYhV89d3`,
+    director: 'Frank Darabont',
+    rating: 9.3,
+    runtime: 142,
+    genre: 'Drama',
+    actors: 'Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler',
+}
 // In this project, we will be using a Firebase database to store our movie data.
 // Configuring Firebase is more involved than what is covered in this lesson,
 // so we have provided a class that will handle the configuration for you.
@@ -24,6 +34,7 @@ const getMovies = async () => {
     return await response.json();
 }
 
+
 // And here is a function that will add a new movie:
 const addMovie = async (movie) => {
     // "movie" is an object that contains the movie data
@@ -42,6 +53,42 @@ const addMovie = async (movie) => {
     let response = await db.fetch(url, options);
     return await response.json();
 }
+// addMovie(movieObject);
 
+const updateMovie = async (movie) => {
+    try {
+        const url = `/movies/${movie.id}`;
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(movie),
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
+}
+// updateMovie(movieObject)
+
+const deleteMovie = async (movie) => {
+    try {
+        const url = `/movies/${movie.id}`;
+        const options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        };
+        let response = await db.fetch(url, options);
+        return await response.json();
+    } catch (e) {
+        console.error(e);
+    }
+}
+// deleteMovie(movieObject)
+getMovies().then(console.log);
 // Here is where you will create your own functions to further interact with the database.
 // HAPPY CODING!!!
