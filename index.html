@@ -5,7 +5,48 @@
     <title>Movies App</title>
 </head>
 <body>
-
+<h2>Search Movie</h2>
+<input type="text" placeholder="movie name">
+<div id="contents">List</div>
+<div id="addMovie">
+<h2>Add Movie</h2>
+<form>
+    <input id="add-movie-name" type="text" placeholder="Movie name">
+    <input id="add-year" type="text" placeholder="Year">
+    <input id="add-director" type="text" placeholder="director">
+    <input id="add-rating" type="text" placeholder="rating">
+    <input id="add-runtime" type="text" placeholder="runtime">
+    <input id="add-genre" type="text" placeholder="genre">
+    <input id="add-actors" type="text" placeholder="actors">
+    <button id="add-button">add</button>
+</form>
+</div>
+<div id="updateMovie">
+    <h2>Update Movie</h2>
+    <form>
+        <input id="update-movie-name" type="text" placeholder="Movie name">
+        <input id="update-year" type="text" placeholder="Year">
+        <input id="update-director" type="text" placeholder="director">
+        <input id="update-rating" type="text" placeholder="rating">
+        <input id="update-runtime" type="text" placeholder="runtime">
+        <input id="update-genre" type="text" placeholder="genre">
+        <input id="update-actors" type="text" placeholder="actors">
+        <button id="update-button">update</button>
+    </form>
+</div>
+<div id="deleteMovie">
+    <h2>Delete Movie</h2>
+    <form>
+        <input id="delete-movie-name" type="text" placeholder="Movie name">
+<!--        <input id="delete-year" type="text" placeholder="Year">-->
+<!--        <input id="delete-director" type="text" placeholder="director">-->
+<!--        <input id="delete-rating" type="text" placeholder="rating">-->
+<!--        <input id="delete-runtime" type="text" placeholder="runtime">-->
+<!--        <input id="delete-genre" type="text" placeholder="genre">-->
+<!--        <input id="delete-actors" type="text" placeholder="actors">-->
+        <button id="delete-button">delete</button>
+    </form>
+</div>
 <!-- The core Firebase JS SDK and Databse library -->
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-firestore.js"></script>
