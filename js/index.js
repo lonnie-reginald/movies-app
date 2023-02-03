@@ -5,6 +5,7 @@
     let addButton = document.querySelector(`#add-button`)
     let updateButton = document.querySelector(`#update-button`)
     let deleteButton = document.querySelector(`#delete-button`)
+    let searchButton = document.querySelector(`#search-button`)
 
 
     let title = document.querySelector(`#movie-name`)
@@ -14,7 +15,35 @@
     let runtime = document.querySelector(`#movie-runtime`)
     let genre = document.querySelector(`#movie-genre`)
     let actors = document.querySelector(`#movie-actors`)
+    let search = document.querySelector(`#search-bar`)
 
+searchButton.addEventListener(`click`,async ()=>{
+
+    let filteredMovies=[];
+    let allMovies=await getMovies()
+    for(let movie of allMovies){
+        if ((search.value).toLowerCase().startsWith((movie.title).toLowerCase())) {
+            filteredMovies.push(movie);
+            console.log(filteredMovies[0])
+        }
+        for(let i = 0; i < filteredMovies.length; i++){
+            // console.log(movies[i])
+            let htmlContent = document.querySelector(`#searchedMovie`)
+            htmlContent.innerHTML = `
+         <div id="searchCard">
+        <h3>${filteredMovies[i].title}</h3>
+        <ul>
+        <li>${filteredMovies[i].year}</li>
+        <li>${filteredMovies[i].director}</li>
+        <li>${filteredMovies[i].rating}</li>
+        <li>${filteredMovies[i].runtime}</li>
+        <li>${filteredMovies[i].genre}</li>
+        <li>${filteredMovies[i].actors}</li>
+        </ul>
+         </div>`
+        }
+    }
+});
 
     async function nameToId(movieTitle) {
         const movies = await getMovies();
@@ -32,11 +61,11 @@
             (movies) => {
                 let html = ``
                 for(let i = 0; i < movies.length; i++){
-                    console.log(movies[i])
+                    // console.log(movies[i])
                     let htmlContent = document.querySelector(`#contents`)
                     html += `
 
-        <div>
+        <div class="card">
         
         <h3>${movies[i].title}</h3>
         <ul>
