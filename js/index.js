@@ -3,26 +3,28 @@
     // Before you can use the database, you need to configure the "db" object 
     // with your team name in the "js/movies-api.js" file.
     let addButton = document.querySelector(`#add-button`)
-    let addTitle=document.querySelector(`#add-movie-name`)
-    let addYear=document.querySelector(`#add-year`)
-    let addDirector=document.querySelector(`#add-director`)
-    let addRating=document.querySelector(`#add-rating`)
-    let addRuntime=document.querySelector(`#add-runtime`)
-    let addGenre=document.querySelector(`#add-genre`)
-    let addActors=document.querySelector(`#add-actors`)
-
     let updateButton = document.querySelector(`#update-button`)
-    let updateID=document.querySelector(`#update-ID`)
-    let updateTitle=document.querySelector(`#update-movie-name`)
-    let updateYear=document.querySelector(`#update-year`)
-    let updateDirector=document.querySelector(`#update-director`)
-    let updateRating=document.querySelector(`#update-rating`)
-    let updateRuntime=document.querySelector(`#update-runtime`)
-    let updateGenre=document.querySelector(`#update-genre`)
-    let updateActors=document.querySelector(`#update-actors`)
-
     let deleteButton = document.querySelector(`#delete-button`)
-    let deleteMovieName = document.querySelector(`#delete-movie-name`)
+
+
+    let title = document.querySelector(`#movie-name`)
+    let year = document.querySelector(`#movie-year`)
+    let director = document.querySelector(`#movie-director`)
+    let rating = document.querySelector(`#movie-rating`)
+    let runtime = document.querySelector(`#movie-runtime`)
+    let genre = document.querySelector(`#movie-genre`)
+    let actors = document.querySelector(`#movie-actors`)
+
+
+    async function nameToId(movieTitle) {
+        const movies = await getMovies();
+        for (let i = 0; i < movies.length; i++) {
+            if (movieTitle === movies[i].title) {
+                console.log(movies[i].id);
+                return movies[i].id;
+            }
+        }
+    }
 
 
     const render = () =>{
@@ -35,8 +37,9 @@
                     html += `
 
         <div>
+        
+        <h3>${movies[i].title}</h3>
         <ul>
-        <li>${movies[i].title}</li>
         <li>${movies[i].year}</li>
         <li>${movies[i].director}</li>
         <li>${movies[i].rating}</li>
@@ -54,13 +57,13 @@
     addButton.addEventListener("click", (e) => {
         e.preventDefault()
         let add = {
-            title: `${addTitle.value}`,
-            year: `${addYear.value}`,
-            director: `${addDirector.value}`,
-            rating: `${addRating.value}`,
-            runtime: `${addRuntime.value}`,
-            genre: `${addGenre.value}`,
-            actors: `${addActors.value}`,
+            title: `${title.value}`,
+            year: `${year.value}`,
+            director: `${director.value}`,
+            rating: `${rating.value}`,
+            runtime: `${runtime.value}`,
+            genre: `${genre.value}`,
+            actors: `${actors.value}`,
         }
 
         console.log(add)
@@ -69,27 +72,35 @@
     })
 
 
-    deleteButton.addEventListener(`click`, (e) => {
+    deleteButton.addEventListener(`click`, async (e) => {
         e.preventDefault()
+
+        let id = await nameToId(title.value)
+        console.log(id)
+
         let movieObj = {
-            id: deleteMovieName.value
+            id: id
         }
+
         deleteMovie(movieObj).then(render);
 
     });
 
 
-    updateButton.addEventListener("click", (e) => {
+    updateButton.addEventListener("click", async (e) => {
         e.preventDefault()
+        let id = await nameToId(title.value)
+        console.log(id)
+
         let update = {
-            title: `${updateTitle.value}`,
-            year: `${updateYear.value}`,
-            director: `${updateDirector.value}`,
-            rating: `${updateRating.value}`,
-            runtime: `${updateRuntime.value}`,
-            genre: `${updateGenre.value}`,
-            actors: `${updateActors.value}`,
-            id: `${updateID.value}`,
+            title: `${title.value}`,
+            year: `${year.value}`,
+            director: `${director.value}`,
+            rating: `${rating.value}`,
+            runtime: `${runtime.value}`,
+            genre: `${genre.value}`,
+            actors: `${actors.value}`,
+            id: `${id}`
         }
 
         updateMovie(update).then(render)
