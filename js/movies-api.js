@@ -89,7 +89,7 @@ const deleteMovie = async (movie) => {
         console.error(e);
     }
 }
-deleteMovie(movieObject)
+// deleteMovie(movieObject)
 // Here is where you will create your own functions to further interact with the database.
 // HAPPY CODING!!!
 
