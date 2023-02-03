@@ -17,6 +17,7 @@
     let actors = document.querySelector(`#movie-actors`)
     let search = document.querySelector(`#search-bar`)
 
+
 searchButton.addEventListener(`click`,async ()=>{
 
     let filteredMovies=[];

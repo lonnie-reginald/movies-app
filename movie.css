@@ -3,22 +3,8 @@ display: grid;
     grid-template: 50px 1fr 1fr 1fr 1fr /50px 1fr 1fr 1fr 50px;
     background-image: url("images/Screenshot 2023-02-03 at 3.28.05 PM.png");
 }
-#heading{
-    display: grid;
-    grid-template: 1fr / repeat(5,1fr);
-    grid-row: 1;
-    grid-column: 1/span 5;
-    /*background-color: black;*/
 
 
-}
-#heading-content{
-    grid-row: 1;
-    grid-column: 4;
-    display: flex;
-    justify-content: flex-end;
-
-}
 #heading-search{
     grid-row: 1;
     grid-column: 1/ span 3;
@@ -41,6 +27,7 @@ display: grid;
     align-items: center;
     justify-content: center;
     background-image: url("images/avengers.jpeg");
+    background-color: #2E343F;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 80%;
@@ -59,6 +46,7 @@ display: grid;
     grid-row: 1;
     grid-column: 2;
     background-image: url("images/smile.webp");
+    background-color: #2E343F;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 80%;
@@ -79,6 +67,7 @@ display: grid;
 #edit-title{
     grid-row: 1;
     grid-column: 2;
+    color: white;
 }
 .card {
     background-color: #2E343F;
@@ -105,6 +94,7 @@ display: grid;
     display: grid;
     grid-template: repeat(3,1fr) / repeat(3,1fr);
     justify-content: center;
+
 }
 #searchedMovie{
     grid-row: 2;
@@ -114,11 +104,12 @@ display: grid;
 #search-bar{
     height: 30px;
     width: 400px;
-    margin-left: 180px;
+    margin-left: 90px;
     font-size: 1.5em;
+
 }
 #search-button{
-    height: 30px;
+    height: 35px;
     width: 100px;
 }
 .bigInput{
@@ -169,6 +160,7 @@ display: grid;
 }
 #searchedMoviediv{
     background-image: url("images/mario.jpeg");
+    background-color: #15181C;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 80%;
