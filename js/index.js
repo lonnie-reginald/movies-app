@@ -83,6 +83,14 @@ searchButton.addEventListener(`click`,async ()=>{
             }
         );
     }
+    fetch(`https://api.themoviedb.org/3/movie/550?api_key=${keys.tmdb}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
     addButton.addEventListener("click", (e) => {
         e.preventDefault()
