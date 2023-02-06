@@ -67,6 +67,8 @@ searchButton.addEventListener(`click`,async ()=>{
             let htmlContent = document.querySelector(`#searchedMovie`)
             htmlContent.innerHTML = `
          <div id="searchCard">
+          <div class="card-inner">
+          <div class="card-front">
         <h3>${filteredMovies[i].title}</h3>
         <img src="${posterUrl}" alt="yp" class="search-posters" >
         <ul class="search-card-ul">
@@ -77,6 +79,11 @@ searchButton.addEventListener(`click`,async ()=>{
         <li>${filteredMovies[i].genre}</li>
         <li>${filteredMovies[i].actors}</li>
         </ul>
+        </div>
+        <div class="card-back">
+        </div>
+        </div>
+        
          </div>`
         })
     }
@@ -101,18 +108,24 @@ searchButton.addEventListener(`click`,async ()=>{
                 tmdbName(movies[i].title, (posterUrl) => {
                     let htmlContent = document.querySelector(`#contents`);
                     html += `
-        <div class="card">
-          <h3>${movies[i].title}</h3>
-          <img src="${posterUrl}" alt="almost here" class="posters">
-          <ul class="card-ul">
-            <li>${movies[i].year}</li>
-            <li>${movies[i].director}</li>
-            <li>${movies[i].rating}</li>
-            <li>${movies[i].runtime}</li>
-            <li>${movies[i].genre}</li>
-            <li>${movies[i].actors}</li>
-          </ul>
-        </div>`;
+<div class="card">
+    <div class="card-inner">
+        <div class="card-front">
+            <h3 class="title-button">${movies[i].title}</h3>
+            <img src="${posterUrl}" alt="almost here" class="posters">
+            <ul>
+         <li>${movies[i].year}</li>
+         <li>${movies[i].director}</li>
+         <li>${movies[i].rating}</li>
+         <li>${movies[i].runtime}</li>
+         <li>${movies[i].genre}</li>
+         <li>${movies[i].actors}</li>
+       </ul>
+        </div>
+       <div class="card-back">
+        </div>
+    </div>
+   </div>`
                     htmlContent.innerHTML = html;
                 });
             }
