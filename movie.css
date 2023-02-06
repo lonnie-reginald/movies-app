@@ -19,6 +19,10 @@ display: grid;
     background-color: silver;
 
 }
+#movie-selection{
+    height: 35px;
+
+}
 .media-scroller{
     display: grid;
     grid-column: 1/ span 2;
@@ -39,8 +43,6 @@ display: grid;
     grid-row: 3;
     margin-left: 40rem;
 }
-
-
 #addMovie{
     /*display: flex;*/
     /*align-items: center;*/
@@ -155,9 +157,9 @@ display: grid;
 
 }
 #search-bar{
-    height: 30px;
+    height: 35px;
     width: 400px;
-    margin-left: 90px;
+    margin:10px 0 0 90px ;
     font-size: 1.5em;
 
 }
