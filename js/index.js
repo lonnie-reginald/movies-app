@@ -60,6 +60,7 @@ searchButton.addEventListener(`click`,async ()=>{
         }
     }
 
+
     // const render = () =>{
     //     getMovies().then(
     //         (movies) => {
