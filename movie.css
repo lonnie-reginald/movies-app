@@ -19,9 +19,8 @@ display: grid;
     background-color: silver;
 
 }
-#contents{
-    display: flex;
-    flex-direction: row;
+.media-scroller{
+    display: grid;
     grid-column: 1/ span 2;
     grid-row: 2;
     align-items: center;
@@ -31,7 +30,16 @@ display: grid;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 80%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
 }
+
+#contents{
+    display: flex;
+    grid-row: 3;
+}
+
+
 #addMovie{
     /*display: flex;*/
     /*align-items: center;*/
@@ -80,7 +88,8 @@ display: grid;
     color: white;
 }
 #searchCard {
-    background-color: #DAC8AF;
+    background-color: #2E343F;
+    color: white;
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
