@@ -35,15 +35,15 @@ movieSelect.addEventListener('change', async function GenreToId() {
 <div class="card">
     <div class="card-inner">
         <div class="card-front">
-            <h3 class="title-button">${movies[i].title}</h3>
+            <h3 class="title-button">${moviesFiltered[i].title}</h3>
             <img src="${posterUrl}" alt="almost here" class="posters">
             <ul>
-         <li>${movies[i].year}</li>
-         <li>${movies[i].director}</li>
-         <li>${movies[i].rating}</li>
-         <li>${movies[i].runtime}</li>
-         <li>${movies[i].genre}</li>
-         <li>${movies[i].actors}</li>
+         <li>${moviesFiltered[i].year}</li>
+         <li>${moviesFiltered[i].director}</li>
+         <li>${moviesFiltered[i].rating}</li>
+         <li>${moviesFiltered[i].runtime}</li>
+         <li>${moviesFiltered[i].genre}</li>
+         <li>${moviesFiltered[i].actors}</li>
        </ul>
         </div>
        <div class="card-back">
@@ -136,6 +136,8 @@ searchButton.addEventListener(`click`,async ()=>{
             }
         });
     };
+
+
     async function getTrailerByTitle(input) {
         return fetch(`https://api.themoviedb.org/3/search/movie?api_key=${keys.tmdb}&query=${encodeURIComponent(input)}&page=1`)
             .then(response => response.json())
@@ -153,6 +155,8 @@ searchButton.addEventListener(`click`,async ()=>{
                 console.error("Error:", error);
             });
     }
+
+
     function tmdbName(input, callback) {
         fetch(
             `https://api.themoviedb.org/3/search/movie?api_key=${keys.tmdb}&query=${encodeURIComponent(input)}&page=1`)
