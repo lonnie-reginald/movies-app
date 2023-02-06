@@ -1,12 +1,8 @@
 (async () => {
-    // This is the entry point for your application. Write all of your code here.
-    // Before you can use the database, you need to configure the "db" object 
-    // with your team name in the "js/movies-api.js" file.
     let addButton = document.querySelector(`#add-button`)
     let updateButton = document.querySelector(`#update-button`)
     let deleteButton = document.querySelector(`#delete-button`)
     let searchButton = document.querySelector(`#search-button`)
-
 
     let title = document.querySelector(`#movie-name`)
     let year = document.querySelector(`#movie-year`)
@@ -16,6 +12,43 @@
     let genre = document.querySelector(`#movie-genre`)
     let actors = document.querySelector(`#movie-actors`)
     let search = document.querySelector(`#search-bar`)
+    let movieSelect = document.querySelector(`#movie-selection`)
+    let all = document.querySelector(`#all`)
+    let htmlContent = document.querySelector(`#contents`)
+
+movieSelect.addEventListener('change', async function GenreToId() {
+        const movies = await getMovies();
+        let moviesFiltered = []
+        for (let i = 0; i < movies.length; i++) {
+            if (movieSelect.value.toLowerCase() === movies[i].genre.toLowerCase()) {
+               moviesFiltered.push(movies[i]);
+            }
+            if (movieSelect.value === all.value){
+                moviesFiltered.push(movies[i]);
+            }
+        }
+    let html=''
+    for(let i=0; i<moviesFiltered.length; i++){
+        tmdbName(moviesFiltered[i].title, (posterUrl) => {
+            let htmlContent = document.querySelector(`#contents`);
+            html += `
+        <div class="card">
+          <h3>${moviesFiltered[i].title}</h3>
+          <img src="${posterUrl}" class="posters">
+         
+          <ul class="card-ul">
+            <li>${moviesFiltered[i].year}</li>
+            <li>${moviesFiltered[i].director}</li>
+            <li>${moviesFiltered[i].rating}</li>
+            <li>${moviesFiltered[i].runtime}</li>
+            <li>${moviesFiltered[i].genre}</li>
+            <li>${moviesFiltered[i].actors}</li>
+          </ul>
+        </div>`;
+            htmlContent.innerHTML = html;
+        })
+    }
+    });
 
 
 searchButton.addEventListener(`click`,async ()=>{
@@ -36,7 +69,7 @@ searchButton.addEventListener(`click`,async ()=>{
          <div id="searchCard">
         <h3>${filteredMovies[i].title}</h3>
         <img src="${posterUrl}" alt="yp" class="search-posters" >
-        <ul>
+        <ul class="search-card-ul">
         <li>${filteredMovies[i].year}</li>
         <li>${filteredMovies[i].director}</li>
         <li>${filteredMovies[i].rating}</li>
@@ -60,39 +93,6 @@ searchButton.addEventListener(`click`,async ()=>{
         }
     }
 
-
-    // const render = () =>{
-    //     getMovies().then(
-    //         (movies) => {
-    //             let html = ``
-    //             for(let i = 0; i < movies.length; i++){
-    //                 console.log(movies[i].title)
-    //                 let htmlContent = document.querySelector(`#contents`)
-    //                 html += `
-    //     <div class="card">
-    //
-    //     <h3>${movies[i].title}</h3>
-    //     <img src="" alt="almost here">
-    //     <ul>
-    //     <li>${movies[i].year}</li>
-    //     <li>${movies[i].director}</li>
-    //     <li>${movies[i].rating}</li>
-    //     <li>${movies[i].runtime}</li>
-    //     <li>${movies[i].genre}</li>
-    //     <li>${movies[i].actors}</li>
-    //
-    //     </ul>
-    //     </div>`
-    //
-    //
-    //
-    //                 // htmlContent.style.backgroundImage = `url(${})`
-    //                 htmlContent.innerHTML = html
-    //             }
-    //         }
-    //     );
-    // }
-
     const
         render = () => {
         getMovies().then((movies) => {
@@ -104,7 +104,7 @@ searchButton.addEventListener(`click`,async ()=>{
         <div class="card">
           <h3>${movies[i].title}</h3>
           <img src="${posterUrl}" alt="almost here" class="posters">
-          <ul>
+          <ul class="card-ul">
             <li>${movies[i].year}</li>
             <li>${movies[i].director}</li>
             <li>${movies[i].rating}</li>

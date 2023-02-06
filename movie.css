@@ -15,7 +15,7 @@ display: grid;
     grid-row: 2/ span 5;
    grid-column: 2/span 3;
     display: grid;
-    grid-template: 500px 500px / repeat(2,1fr);
+    grid-template: 700px 500px / repeat(2,1fr);
     background-color: silver;
 
 }
@@ -84,8 +84,9 @@ display: grid;
     padding: 10px;
     box-shadow: 0 0 10px 0 #000000;
     width: 250px;
-    height: 500px;
+    height: 460px;
     color: white;
+
 }
 #searchCard {
     background-color: #2E343F;
@@ -95,13 +96,13 @@ display: grid;
     padding: 10px;
     box-shadow: 0 0 10px 0 #000000;
     width: 400px;
-    height: 400px;
+    height: 590px;
     /*display: flex;*/
     /*align-items: center;*/
 }
 #searchedMoviediv{
     display: grid;
-    grid-template: repeat(3,1fr) / repeat(3,1fr);
+    grid-template: 70px 1fr 1fr / repeat(3,1fr);
     justify-content: center;
 
 }
@@ -177,7 +178,7 @@ display: grid;
 
 
 .search-posters{
-    height: 420px;
+    height: 410px;
     width: 400px;
 }
 
@@ -185,6 +186,12 @@ display: grid;
 .posters{
     height: 270px;
     width: 250px;
+}
+.search-card-ul{
+    margin: 5px 0 0 0;
+}
+card-ul{
+    margin: 10px 0 0 0;
 }
 
 
