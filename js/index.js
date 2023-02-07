@@ -14,7 +14,6 @@
     let search = document.querySelector(`#search-bar`)
     let movieSelect = document.querySelector(`#movie-selection`)
     let all = document.querySelector(`#all`)
-    let htmlContent = document.querySelector(`#contents`)
 
 movieSelect.addEventListener('change', async function GenreToId() {
         const movies = await getMovies();
@@ -137,26 +136,6 @@ searchButton.addEventListener(`click`,async ()=>{
         });
     };
 
-
-    async function getTrailerByTitle(input) {
-        return fetch(`https://api.themoviedb.org/3/search/movie?api_key=${keys.tmdb}&query=${encodeURIComponent(input)}&page=1`)
-            .then(response => response.json())
-            .then(data => {
-                const movieID = data.results[0].id;
-                return fetch(`https://api.themoviedb.org/3/movie/${movieID}/videos?api_key=${keys.tmdb}`);
-            })
-            .then(response => response.json())
-            .then(data => {
-                const video = data.results[0];
-                const videoURL = `https://www.youtube.com/embed/${video.key}`;
-                return `<iframe width="500" height="315" src="${videoURL}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
-    }
-
-
     function tmdbName(input, callback) {
         fetch(
             `https://api.themoviedb.org/3/search/movie?api_key=${keys.tmdb}&query=${encodeURIComponent(input)}&page=1`)
@@ -170,7 +149,6 @@ searchButton.addEventListener(`click`,async ()=>{
                 console.error("Error:", error);
             });
     }
-
 
     addButton.addEventListener("click", (e) => {
         e.preventDefault()
