@@ -8,34 +8,42 @@
 <body>
 
 <div id="page-wrapper">
-    <div id="searchedMoviediv">
+
+    <div id="searched-movie-div">
+
     <div id="heading-search">
-        <input id="search-bar" type="text" placeholder="Find Film">
+<!--------search movie----------->
+        <input id="search-bar" type="text" placeholder="Find Film" value="The Super Mario Bros. Movie">
         <button id="search-button">search</button>
+<!---------select genre---------->
         <select  id="movie-selection">
         <option id="all">all</option>
         <option>drama</option>
         <option>comedy</option>
         <option>action</option>
         <option>horror</option>
-    </select>
+        </select>
     </div>
-        <div id="searchedMovie"></div>
+        <div id="searched-movie"></div>
     </div>
-    <div class="media-scroller ">
-    <div id="contents">List</div>
+
+<!--    Location all movie cards are stored    -->
+    <div class="media-scroller">
+        <div id="contents"></div>
     </div>
-    <div id="addMovieDiv">
-        <div id="addMovie">
+
+<!-- ADD UPDATE DELETE MOVIE SECTION    -->
+    <div id="add-movie-div">
+        <div id="add-movie">
             <h2 id="edit-title">Add / Update / Delete </h2>
             <form id="modify-movie">
-                <input class="bigInput" id="movie-name" type="text" placeholder="Movie name">
-                <input class="meduimInput" id="movie-director" type="text" placeholder="director">
-                <input class="smallInput" id="movie-genre" type="text" placeholder="genre">
-                <input class="meduimInput" id="movie-actors" type="text" placeholder="actors">
-                <input class="smallInput" id="movie-year" type="text" placeholder="Year">
-                <input class="medsmallInput" id="movie-rating" type="text" placeholder="rating">
-                <input class="medsmallInput" id="movie-runtime" type="text" placeholder="runtime">
+                <input class="big-input" id="movie-name" type="text" placeholder="Movie name">
+                <input class="medium-input" id="movie-director" type="text" placeholder="director">
+                <input class="small-input" id="movie-genre" type="text" placeholder="genre">
+                <input class="medium-input" id="movie-actors" type="text" placeholder="actors">
+                <input class="small-input" id="movie-year" type="text" placeholder="Year">
+                <input class="medsmall-input" id="movie-rating" type="text" placeholder="rating">
+                <input class="medsmall-input" id="movie-runtime" type="text" placeholder="runtime">
                 <br>
                 <div id="buttons">
                     <button id="add-button">add</button>
@@ -45,13 +53,9 @@
             </form>
         </div>
     </div>
+
+
 </div>
-
-
-
-
-
-
 
 
 <!-- The core Firebase JS SDK and Databse library -->
